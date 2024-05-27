@@ -1,0 +1,14 @@
+.main{
+    background-color: rgb(199, 204, 184);
+}
+
+.card__image{
+    z-index: 0;
+}
+
+.cards{
+    background-color: rgb(198, 194, 166);
+}
+.card__info{
+    background-color: rgb(170, 152, 114);
+}

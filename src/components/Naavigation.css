@@ -1,0 +1,12 @@
+.nav__brand>h1{
+    color: black;
+}
+
+.nav__connect{
+    background-color: rgb(40, 40, 40);
+}
+
+.nav__links>li{
+    font-size: large;
+    font-weight: 900;
+}
