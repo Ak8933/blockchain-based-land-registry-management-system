@@ -145,7 +145,7 @@ const Home = ({ home, provider, account, escrow, togglePop }) => {
                                 </button>
                             ) : (account === lender) ? (
                                 <button className='home__buy' onClick={lendHandler} disabled={hasLended}>
-                                    Approve & Lend
+                                    Approve For Selling
                                 </button>
                             ) : (account === seller) ? (
                                 <button className='home__buy' onClick={sellHandler} disabled={hasSold}>

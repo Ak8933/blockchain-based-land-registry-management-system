@@ -20,7 +20,7 @@ async function main() {
   await realEstate.deployed()
 
   console.log(`Deployed Real Estate Contract at: ${realEstate.address}`)
-  console.log(`Minting 5 properties...\n`)
+  console.log(`Minting properties...\n`)
 
   for (let i = 0; i < 5; i++) {
     const transaction = await realEstate.connect(seller).mint(`https://gateway.pinata.cloud/ipfs/QmWgRkM5CBUMMVAj3EwaiNnsfSLNyYNzrcAFQDS8f35kNg/${i + 1}.json`)
@@ -42,7 +42,7 @@ async function main() {
   await escrow.deployed()
 
   console.log(`Deployed Escrow Contract at: ${escrow.address}`)
-  console.log(`Listing 5 properties...\n`)
+  console.log(`Listing properties...\n`)
 
   for (let i = 0; i < 5; i++) {
     // Approve properties...
@@ -75,3 +75,89 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TODAY -------------------------
+// deploy.js
+// const hre = require("hardhat");
+// const { hashes } = require('./path/to/register.js'); // Adjust the path accordingly
+
+// const tokens = (n) => {
+//   return ethers.utils.parseUnits(n.toString(), 'ether')
+// }
+
+// async function main() {
+//   // Setup accounts
+//   const [buyer, seller, inspector, lender] = await ethers.getSigners()
+
+//   // Deploy Real Estate
+//   const RealEstate = await ethers.getContractFactory('RealEstate')
+//   const realEstate = await RealEstate.deploy()
+//   await realEstate.deployed()
+
+//   console.log(`Deployed Real Estate Contract at: ${realEstate.address}`)
+//   console.log(`Minting properties...\n`)
+
+//   // Mint properties using hashes from the array
+//   for (let i = 0; i < hashes.length; i++) {
+//     const transaction = await realEstate.connect(seller).mint(`https://gateway.pinata.cloud/ipfs/${hashes[i]}`)
+//     await transaction.wait()
+//   }
+
+//   // Deploy Escrow
+//   const Escrow = await ethers.getContractFactory('Escrow')
+//   const escrow = await Escrow.deploy(
+//     realEstate.address,
+//     seller.address,
+//     inspector.address,
+//     lender.address
+//   )
+//   await escrow.deployed()
+
+//   console.log(`Deployed Escrow Contract at: ${escrow.address}`)
+//   console.log(`Listing properties...\n`)
+
+//   // Approve properties dynamically based on the number of hashes
+//   for (let i = 0; i < hashes.length; i++) {
+//     let transaction = await realEstate.connect(seller).approve(escrow.address, i + 1)
+//     await transaction.wait()
+//   }
+
+//   // Listing properties dynamically based on the number of hashes
+//   for (let i = 0; i < hashes.length; i++) {
+//     let transaction = await escrow.connect(seller).list(i + 1, buyer.address, tokens(20), tokens(10))
+//     await transaction.wait()
+//   }
+
+//   console.log(`Finished.`)
+// }
+
+// // We recommend this pattern to be able to use async/await everywhere
+// // and properly handle errors.
+// main().catch((error) => {
+//   console.error(error);
+//   process.exitCode = 1;
+// });
